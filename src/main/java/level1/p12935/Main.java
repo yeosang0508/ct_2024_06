@@ -1,33 +1,39 @@
 package level1.p12935;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Main {
+
 }
+
 
 class Solution {
     public int[] solution(int[] arr) {
-        int count = arr.length;
+        int[] answer = new int[arr.length - 1];
 
-        int[] answer = new int[count];
+        int[] delete = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            delete[i] = arr[i];
+        }
+        Arrays.sort(delete);
 
-        if(arr.length > 1){
-            count -= 1;
-        } else{
-            count = 1;
+
+        if (arr.length == 1) {
+            arr[0] = -1;
+            return arr;
         }
 
-        if(count == 1){
-            answer[0] = -1;
-            return answer;
-        }
+        int count = 0;
 
-
-        for(int i = 0; i < count; i++){
-            if(arr[i] > arr[i+1]){
-                answer[i] = arr[i];
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 1; j < delete.length; j++) {
+                if (arr[i] == delete[j]) {
+                    answer[count++] = arr[i];
+                }
             }
         }
+
         return answer;
     }
 }
