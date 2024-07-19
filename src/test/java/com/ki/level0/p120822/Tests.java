@@ -11,5 +11,9 @@ public class Tests {
     @DisplayName("jaron => noraj")
     void t1() {assertThat(new Solution().solution("jaron")).isEqualTo("noraj");}
 
+    @Test
+    @DisplayName("bread => daerb")
+    void t2() {assertThat(new Solution().solution("bread")).isEqualTo("daerb");}
+
 
 }

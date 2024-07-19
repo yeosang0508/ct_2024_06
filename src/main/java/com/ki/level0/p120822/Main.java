@@ -7,15 +7,10 @@ class Solution {
     public String solution(String my_string) {
         String answer = "";
 
-        String[] turn = my_string.split("");
-        int result = turn.length;
-
-        for(int i = 0; i < turn.length; i++ ){
-            result--;
-            turn[i] = turn[result];
+        String[] strings = my_string.split("");
+        for (int i = strings.length -1; i >= 0; i--) {
+            answer += strings[i];
         }
-
-        answer = String.join("",turn);
 
         return answer;
     }
